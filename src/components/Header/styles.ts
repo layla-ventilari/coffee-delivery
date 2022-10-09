@@ -10,14 +10,24 @@ nav{
   width: 90rem;
   height: 6.5rem;
   padding: 2rem 16rem; 
-
-  a {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 }
+
+`
+export const NavContainer = styled.div `
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 30rem;
+`
+export  const CartContainer = styled.div`
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ flex: 1;
+ gap: 1rem;
+
+ > svg {
+  color: ${(props) => props.theme['yellow-light']};
+ }
 
 `
