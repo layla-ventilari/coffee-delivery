@@ -7,17 +7,15 @@ import {ShoppingCart } from 'phosphor-react';
 export function Header(){
   return (
     <HeaderContainer>
-    <nav>
       <NavContainer>
          <img src={logoDelivery}/>
           <CartContainer>
             <img src={location} /> 
             <NavLink to="/cart">
-              <ShoppingCart />
+              <ShoppingCart color='#DBAC2C' size={24} />
             </NavLink>
           </CartContainer>
       </NavContainer>
-    </nav>
     </HeaderContainer>
   )
 }

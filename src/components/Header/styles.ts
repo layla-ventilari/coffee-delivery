@@ -4,30 +4,21 @@ export const HeaderContainer = styled.header`
 display: flex;
 align-items: center;
 justify-content: space-between;
-
-nav{
-  display: flex;
-  width: 90rem;
-  height: 6.5rem;
-  padding: 2rem 16rem; 
-}
+width: 1440px;
 
 `
 export const NavContainer = styled.div `
 display: flex;
 align-items: center;
 justify-content: space-between;
-gap: 30rem;
+width: 90rem;
+height: 6.5rem;
+padding: 2rem 10rem; 
 `
 export  const CartContainer = styled.div`
  display: flex;
  align-items: center;
  justify-content: space-between;
- flex: 1;
  gap: 1rem;
-
- > svg {
-  color: ${(props) => props.theme['yellow-light']};
- }
-
+ margin-right: 5rem;
 `
