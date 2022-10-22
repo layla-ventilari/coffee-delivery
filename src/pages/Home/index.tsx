@@ -4,6 +4,7 @@ import CartImage from '../../assets/cart.svg'
 import ClockImage from '../../assets/clock.svg'
 import CubeImage from '../../assets/cube.svg'
 import CupImage from '../../assets/cup.svg'
+import { CoffeeList } from "../../components/CoffeeList"
 
 export function Home(){
   return(
@@ -33,7 +34,7 @@ export function Home(){
       <ImageContainer>
         <img src={CoffeImage} />
       </ImageContainer>
-      
+      <CoffeeList />
     </HomeContainer>
       
   )
