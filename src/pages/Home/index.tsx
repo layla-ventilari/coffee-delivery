@@ -34,7 +34,6 @@ export function Home(){
       <ImageContainer>
         <img src={CoffeImage} />
       </ImageContainer>
-      <CoffeeList />
     </HomeContainer>
       
   )

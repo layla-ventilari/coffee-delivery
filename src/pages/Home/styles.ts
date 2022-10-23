@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 
 export const HomeContainer = styled.div`
-  width: 100%;
+  width: 1440px;
   margin-top: 6rem;
   display: flex;
+  margin-left: 10rem;
+  margin-bottom: 108px;
 `
 export const Container = styled.div`
-  margin-left: 10rem;
+ 
   width: 588px;
   gap: 1rem;
 

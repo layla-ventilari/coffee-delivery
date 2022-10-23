@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 :focus {
   outline: 0;
 }
+
 body {
   background: ${(props) => props.theme['background-base']};
   color: ${(props) => props.theme['white']};
