@@ -1,21 +1,24 @@
 import logoDelivery from '../../assets/logo-delivery.svg'
 import location from '../../assets/location.svg'
-import { HeaderContainer, CartContainer, NavContainer} from './styles'
+import { HeaderContainer, HeaderButton, ButtonContainer} from './styles'
 import {NavLink} from 'react-router-dom'
-import {ShoppingCart } from 'phosphor-react';
+import {ShoppingCart, MapPin } from 'phosphor-react';
 
 export function Header(){
   return (
     <HeaderContainer>
-      <NavContainer>
+      <div className="container">
          <img src={logoDelivery}/>
-          <CartContainer>
-            <img src={location} /> 
-            <NavLink to="/cart">
-              <ShoppingCart color='#DBAC2C' size={24} />
-            </NavLink>
-          </CartContainer>
-      </NavContainer>
+          <ButtonContainer>
+            <HeaderButton variant="purple">
+              <MapPin size={20} weight="fill"/>
+                Porto Alegre, RS
+            </HeaderButton>
+            <HeaderButton variant="yellow">
+              <ShoppingCart size={20} weight="fill"/>
+            </HeaderButton>
+          </ButtonContainer>
+      </div>
     </HeaderContainer>
   )
 }
