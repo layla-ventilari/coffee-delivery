@@ -11,5 +11,5 @@ export function Router(){
         <Route path="/cart" element={<Cart />} />
       </Route>
     </Routes>
-  )
+  );
 }
