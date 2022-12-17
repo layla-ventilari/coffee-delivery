@@ -8,15 +8,19 @@ export function Header(){
   return (
     <HeaderContainer>
       <div className="container">
+         <NavLink to="/">
          <img src={logoDelivery}/>
+         </NavLink>
           <ButtonContainer>
             <HeaderButton variant="purple">
               <MapPin size={20} weight="fill"/>
                 Porto Alegre, RS
             </HeaderButton>
-            <HeaderButton variant="yellow">
-              <ShoppingCart size={20} weight="fill"/>
-            </HeaderButton>
+            <NavLink to="/completeOrder">
+              <HeaderButton variant="yellow">
+                <ShoppingCart size={20} weight="fill"/>
+              </HeaderButton>
+            </NavLink>
           </ButtonContainer>
       </div>
     </HeaderContainer>
