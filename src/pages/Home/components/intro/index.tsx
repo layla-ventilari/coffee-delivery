@@ -40,7 +40,7 @@ export function Intro(){
              <InfoWithIcon
             iconBg={colors["brand-purple"]}
             icon={<Coffee weight="fill"/>}
-            text="O café chaga fresquinho até você"
+            text="O café chega fresquinho até você"
             />
         </BenefitsContainer>
       </div>
