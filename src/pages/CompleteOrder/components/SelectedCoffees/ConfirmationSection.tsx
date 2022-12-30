@@ -4,6 +4,8 @@ import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/formatMoney";
 import { ConfirmationSectionContainer } from "./styles";
 
+
+
 export function ConfirmationSection(){
 
   const DELIVERY_PRICE = 3.5;

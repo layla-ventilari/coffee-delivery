@@ -1,13 +1,18 @@
 import { forwardRef, InputHTMLAttributes } from "react";
-import { InputStyleContainer } from "./styles";
+import { RegularText } from "../Typography";
+import { InputStyleContainer, InputWrapper } from "./styles";
 
-
-type InputProps = InputHTMLAttributes<HTMLInputElement>;
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+  error?: string;
+};
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  (props, ref) => {
+  ({error, ...props }, ref) => {
     return(
-      <InputStyleContainer {...props} ref={ref} />
-    )
+      <InputWrapper>
+        <InputStyleContainer {...props} ref={ref} />
+        {error && <RegularText size="s">{error}</RegularText>}
+      </InputWrapper>
+    ); 
   }
 )
