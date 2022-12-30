@@ -11,7 +11,11 @@ import { Coffee } from "../pages/Home/components/CoffeeCard";
     cartItems: CartItem[];
     addCoffeeToCart: (coffee: CartItem) => void;
     cartQuantity: number;
- }
+    changeCartItemQuantity: (
+      cartItemId: number,
+      type: "increase" | "decrease"
+      ) => void;
+  }
 
  interface CartContextProviderProps{
   children: ReactNode;
@@ -40,12 +44,29 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   setCartItems(newCart);
 }
 
-console.log(cartItems);
+function changeCartItemQuantity(
+  cartItemId: number,
+  type: "increase" | "decrease"
+){
+  const newCart = produce(cartItems, (draft) => {
+    const coffeeExistsInCart = cartItems.findIndex(
+      (cartItem) => cartItem.id === cartItemId
+    );
+
+    if (coffeeExistsInCart >= 0) {
+      const item = draft[coffeeExistsInCart];
+      draft[coffeeExistsInCart].quantity =
+        type === "increase" ? item.quantity + 1 : item.quantity - 1;
+    }
+  });
+
+  setCartItems(newCart);
+}
 
   return (
-    <CartContext.Provider value={{ cartItems, cartQuantity, addCoffeeToCart }}>
+    <CartContext.Provider value={{ cartItems, cartQuantity, addCoffeeToCart, changeCartItemQuantity}}>
       {children}
     </CartContext.Provider>
-  ) ;
+  );
 }
 

@@ -9,6 +9,8 @@ import {
 import { CartItem } from "../../../../contexts/CartContext";
 import { formatMoney } from "../../../../utils/formatMoney";
 import { useCart } from "../../../../hooks/useCart";
+
+
 interface CoffeeCartCardProps {
   coffee: CartItem;
 }
@@ -31,7 +33,10 @@ export function CoffeeCartCard({ coffee }: CoffeeCartCardProps) {
   const coffeeTotal = coffee.price * coffee.quantity;
 
   const formattedPrice = formatMoney(coffeeTotal);
+  
+  
   return(
+
     <CoffeeCartCardContainer>
       <div>
         <img src={`/coffees/${coffee.photo}`} />
