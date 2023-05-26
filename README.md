@@ -62,3 +62,6 @@ To run the project on your local machine, follow the steps below:
 6. Open your browser and access `http://localhost:3000` to view the project.
 
 Feel free to modify the README according to your project's specific needs.
+
+
+![coffee](https://github.com/layla-ventilari/coffee-delivery/assets/99200113/dde357ed-8616-4e46-aa6e-1d7c03cb2a26)
