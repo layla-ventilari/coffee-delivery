@@ -1,5 +1,5 @@
-import produce from "immer";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
+import { produce } from "immer";
 import { Coffee } from "../pages/Home/components/CoffeeCard";
 
 export interface CartItem extends Coffee {
@@ -8,24 +8,44 @@ export interface CartItem extends Coffee {
 
 interface CartContextType {
   cartItems: CartItem[];
-  addCoffeeToCart: (coffee: CartItem) => void;
   cartQuantity: number;
-  changeCartItemQuantity: (cartItemId: number, type: "increase" | "decrease") => void;
+  cartItemsTotal: number;
+  addCoffeeToCart: (coffee: CartItem) => void;
+  changeCartItemQuantity: (
+    cartItemId: number,
+    type: "increase" | "decrease"
+  ) => void;
+  removeCartItem: (cartItemId: number) => void;
+  cleanCart: () => void;
 }
+
+export const CartContext = createContext({} as CartContextType);
 
 interface CartContextProviderProps {
   children: ReactNode;
 }
 
-export const CartContext = createContext({} as CartContextType);
+const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems";
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+    const storedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems);
+    }
+    return [];
+  });
+
   const cartQuantity = cartItems.length;
 
-  // Add a coffee to the cart
+  const cartItemsTotal = cartItems.reduce((total, cartItem) => {
+    return total + cartItem.price * cartItem.quantity;
+  }, 0);
+
   function addCoffeeToCart(coffee: CartItem) {
-    const coffeeAlreadyExistsInCart = cartItems.findIndex((cartItem) => cartItem.id === coffee.id);
+    const coffeeAlreadyExistsInCart = cartItems.findIndex(
+      (cartItem) => cartItem.id === coffee.id
+    );
 
     const newCart = produce(cartItems, (draft) => {
       if (coffeeAlreadyExistsInCart < 0) {
@@ -38,22 +58,59 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
     setCartItems(newCart);
   }
 
-  // Change the quantity of a cart item
-  function changeCartItemQuantity(cartItemId: number, type: "increase" | "decrease") {
+  function changeCartItemQuantity(
+    cartItemId: number,
+    type: "increase" | "decrease"
+  ) {
     const newCart = produce(cartItems, (draft) => {
-      const coffeeExistsInCart = cartItems.findIndex((cartItem) => cartItem.id === cartItemId);
+      const coffeeExistsInCart = cartItems.findIndex(
+        (cartItem) => cartItem.id === cartItemId
+      );
 
       if (coffeeExistsInCart >= 0) {
         const item = draft[coffeeExistsInCart];
-        draft[coffeeExistsInCart].quantity = type === "increase" ? item.quantity + 1 : item.quantity - 1;
+        draft[coffeeExistsInCart].quantity =
+          type === "increase" ? item.quantity + 1 : item.quantity - 1;
       }
     });
 
     setCartItems(newCart);
   }
 
+  function removeCartItem(cartItemId: number) {
+    const newCart = produce(cartItems, (draft) => {
+      const coffeeExistsInCart = cartItems.findIndex(
+        (cartItem) => cartItem.id === cartItemId
+      );
+
+      if (coffeeExistsInCart >= 0) {
+        draft.splice(coffeeExistsInCart, 1);
+      }
+    });
+
+    setCartItems(newCart);
+  }
+
+  function cleanCart() {
+    setCartItems([]);
+  }
+
+  useEffect(() => {
+    localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
+  }, [cartItems]);
+
   return (
-    <CartContext.Provider value={{ cartItems, cartQuantity, addCoffeeToCart, changeCartItemQuantity }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addCoffeeToCart,
+        cartQuantity,
+        changeCartItemQuantity,
+        removeCartItem,
+        cartItemsTotal,
+        cleanCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

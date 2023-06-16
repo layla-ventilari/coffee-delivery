@@ -1,11 +1,17 @@
-import { ShoppingCart } from "phosphor-react";
-import { useState } from "react";
 import { QuantityInput } from "../../../../components/QuantityInput";
 import { RegularText, TitleText } from "../../../../components/Typography";
+import {
+  CoffeeCardContainer,
+  Tags,
+  Name,
+  Description,
+  CardFooter,
+  AddCartWrapper,
+} from "./styles";
+import { ShoppingCart } from "phosphor-react";
+import { useState } from "react";
 import { useCart } from "../../../../hooks/useCart";
 import { formatMoney } from "../../../../utils/formatMoney";
-import { AddCartWrapper, CardFooter, CoffeeCardContainer, Description, Name, Tags } from "./styles";
-
 
 export interface Coffee {
   id: number;
@@ -16,49 +22,53 @@ export interface Coffee {
   price: number;
 }
 
-
 interface CoffeeProps {
   coffee: Coffee;
 }
 
-export function CoffeeCard({ coffee} : CoffeeProps) {
-  const [quantity, setQuantity] = useState(1);  
-  
-  function handleIncrease(){
-    setQuantity(state => state + 1);
-  }
-  function handleDecrease(){
-    setQuantity(state => state - 1);
+export function CoffeeCard({ coffee }: CoffeeProps) {
+  const [quantity, setQuantity] = useState(1);
+
+  function handleIncrease() {
+    setQuantity((state) => state + 1);
   }
 
-  const { addCoffeeToCart} = useCart();
-  
-  function handleAddToCart(){
-    const coffeToAdd = {
-      ...coffee,
-      quantity, 
-    };
-    addCoffeeToCart(coffeToAdd)
+  function handleDecrease() {
+    setQuantity((state) => state - 1);
   }
-  
+
+  const { addCoffeeToCart } = useCart();
+
+  function handleAddToCart() {
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addCoffeeToCart(coffeeToAdd);
+  }
+
   const formattedPrice = formatMoney(coffee.price);
-  
-  return(
-   
-   <CoffeeCardContainer>
-     <img src={`/coffees/${coffee.photo}`}/>
+
+  return (
+    <CoffeeCardContainer>
+      <img src={`/coffees/${coffee.photo}`} />
       <Tags>
         {coffee.tags.map((tag) => (
-          <span key={`${coffee.id}} ${tag}`}>{tag}</span>
+          <span key={`${coffee.id}${tag}`}>{tag}</span>
         ))}
       </Tags>
-        <Name>{coffee.name}</Name>
+
+      <Name>{coffee.name}</Name>
       <Description>{coffee.description}</Description>
+
       <CardFooter>
         <div>
           <RegularText size="s">R$</RegularText>
-          <TitleText size="m" color="text" as="strong">{formattedPrice}</TitleText>
+          <TitleText size="m" color="text" as="strong">
+            {formattedPrice}
+          </TitleText>
         </div>
+
         <AddCartWrapper>
           <QuantityInput
             onIncrease={handleIncrease}
@@ -66,10 +76,10 @@ export function CoffeeCard({ coffee} : CoffeeProps) {
             quantity={quantity}
           />
           <button onClick={handleAddToCart}>
-            <ShoppingCart weight="fill" size={22}/>
+            <ShoppingCart weight="fill" size={22} />
           </button>
         </AddCartWrapper>
       </CardFooter>
     </CoffeeCardContainer>
-  )
+  );
 }

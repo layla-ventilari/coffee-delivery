@@ -1,6 +1,6 @@
 import { TitleText } from "../../../../components/Typography";
 import { useCart } from "../../../../hooks/useCart";
-import { CoffeeCard } from "../CoffeeCard";
+import { CoffeeCartCard } from "../CoffeeCard";
 import { ConfirmationSection } from "./ConfirmationSection";
 import { DetailsContainer, SelectedCoffeesContainer } from "./styles";
 
@@ -15,7 +15,7 @@ export function SelectedCoffees(){
 
       <DetailsContainer>
         {cartItems.map((item) => (
-          <CoffeeCard key={item.id} coffee={item} />
+          <CoffeeCartCard key={item.id} coffee={item} />
         ))}
        
         <ConfirmationSection />
