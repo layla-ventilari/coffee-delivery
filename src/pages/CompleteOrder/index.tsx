@@ -1,4 +1,3 @@
-import React from "react";
 import { CompleteOrderForm } from "./components/CompleteOrderForm";
 import { SelectedCoffees } from "./components/SelectedCoffees";
 import { CompleteOrderContainer } from "./styles";
@@ -8,14 +7,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
 
-// Define payment methods
 enum PaymentMethods {
   credit = "credit",
   debit = "debit",
   money = "money",
 }
 
-// Define form validation schema
 const confirmOrderFormValidationSchema = zod.object({
   cep: zod.string().min(1, "Informe o CEP"),
   street: zod.string().min(1, "Informe o Rua"),
@@ -44,6 +41,7 @@ export function CompleteOrderPage() {
   });
 
   const { handleSubmit } = confirmOrderForm;
+
   const navigate = useNavigate();
   const { cleanCart } = useCart();
 
