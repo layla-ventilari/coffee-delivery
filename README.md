@@ -27,12 +27,10 @@ O projeto aborda conceitos importantes como:
 - TypeScript
 - Vite
 
-## 📷 Screenshots
+## ☕ Coffee Delivery
 
 ![Peek 2023-06-18 00-57](https://github.com/layla-ventilari/coffee-delivery/assets/99200113/b94110b1-c84d-4a35-90ff-8db9d9d7f7c1)
 
-## 🤝 Contribuição
 
-Contribuições são bem-vindas! Se você encontrou algum problema no código ou deseja adicionar melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 
