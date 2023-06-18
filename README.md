@@ -31,13 +31,6 @@ O layout da aplicação foi fornecido no Figma e pode ser acessado através dest
 - TypeScript
 - Vite
 
-## ℹ️ Como utilizar
-
-1. Clone o repositório: `git clone <URL do repositório>`
-2. Acesse a pasta do projeto: `cd coffee-delivery`
-3. Instale as dependências: `npm install` ou `yarn install`
-4. Execute o projeto: `npm run dev` ou `yarn dev`
-
 ## 📷 Screenshots
 
 ![Peek 2023-06-18 00-57](https://github.com/layla-ventilari/coffee-delivery/assets/99200113/b94110b1-c84d-4a35-90ff-8db9d9d7f7c1)
