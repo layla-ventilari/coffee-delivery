@@ -21,10 +21,6 @@ O projeto aborda conceitos importantes como:
 - Propriedades
 - Componentização
 
-## 🎨 Layout
-
-O layout da aplicação foi fornecido no Figma e pode ser acessado através deste [link](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate). É necessário criar uma conta no Figma para visualizar o layout.
-
 ## 🚀 Tecnologias Utilizadas
 
 - ReactJS
