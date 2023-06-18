@@ -1,67 +1,49 @@
-# ☕ Coffee Delivery
+# Desafio do Curso Ignite - Coffee Delivery ☕
 
-Welcome to the Coffee Delivery project! This project aims to create a coffee delivery page where users can browse and purchase various types of coffee. The goal is to provide an easy and intuitive shopping experience for coffee lovers.
+## 📖 Descrição
 
-## 🚀 Features
+Este repositório contém a solução do desafio do curso Ignite, na trilha de ReactJS. O desafio consistia em desenvolver uma aplicação para gerenciar um carrinho de compras de uma cafeteria fictícia, com as seguintes funcionalidades:
 
-The Coffee Delivery project offers the following features:
+- Listagem de produtos (cafés) disponíveis para compra
+- Adicionar uma quantidade específica de itens no carrinho
+- Aumentar ou remover a quantidade de itens no carrinho
+- Formulário para o usuário preencher o seu endereço
+- Exibir o total de itens no carrinho no Header
+- Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
-- **Product Listing**: Users can view the list of available coffees for purchase. Each coffee is displayed with its name, description, and price.
+O projeto aborda conceitos importantes como:
 
-- **Add and Remove Items from Cart**: Users can add coffees to the shopping cart. They also have the option to remove items from the cart.
+- Estados
+- ContextAPI
+- LocalStorage
+- Imutabilidade do estado
+- Listas e chaves no ReactJS
+- Propriedades
+- Componentização
 
-- **Cart Item Count**: The header displays the total number of items in the cart so that users can easily keep track of the selected quantity of coffees.
+## 🎨 Layout
 
-- **Address Form**: Before completing the purchase, users are prompted to fill out a form with their address details for delivery.
+O layout da aplicação foi fornecido no Figma e pode ser acessado através deste [link](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate). É necessário criar uma conta no Figma para visualizar o layout.
 
-- **Total Purchase Value**: The total value of the purchase is calculated based on the quantity of each item in the cart, multiplied by the individual price of each coffee.
+## 🚀 Tecnologias Utilizadas
 
-## 🛠️ Technologies Used
+- ReactJS
+- TypeScript
+- Vite
 
-The Coffee Delivery project was developed using the following technologies:
+## ℹ️ Como utilizar
 
-- ReactJS: JavaScript library for building the user interface.
-- Context API: Used for data sharing between components and managing the global state of the shopping cart.
-- LocalStorage: Browser-based storage to persist cart items between sessions.
-- CSS: Styling of the project using Styled Components.
+1. Clone o repositório: `git clone <URL do repositório>`
+2. Acesse a pasta do projeto: `cd coffee-delivery`
+3. Instale as dependências: `npm install` ou `yarn install`
+4. Execute o projeto: `npm run dev` ou `yarn dev`
 
-## 📁 Directory Structure
+## 📷 Screenshots
 
-The project directory structure is organized as follows:
+[Inclua aqui uma ou mais screenshots da aplicação em funcionamento, se desejar]
 
-```
-coffee-delivery/
-  |- public/
-  |- src/
-      |- components/
-      |- data/
-      |- pages/
-      |- App.js
-      |- index.js
-  |- README.md
-```
+## 🤝 Contribuição
 
-- The `public` folder contains the main HTML file and other static assets.
-- The `src` folder contains the project's source code.
-  - The `components` folder contains reusable components used in the pages.
-  - The `data` folder contains the data of the available coffees for purchase.
-  - The `pages` folder contains the main project pages.
-  - The `App.js` file is the main component that defines the overall structure of the application.
-  - The `index.js` file is responsible for rendering the application on the HTML page.
-- The `README.md` file contains information about the project.
-
-## ⚙️ How to Run the Project
-
-To run the project on your local machine, follow the steps below:
-
-1. Make sure you have Node.js installed on your machine.
-2. Clone this repository to your desired directory.
-3. Open the terminal and navigate to the project's root directory.
-4. Run the `npm install` command to install the project dependencies.
-5. Once the installation is complete, run the `npm start` command to start the development server.
-6. Open your browser and access `http://localhost:3000` to view the project.
-
-Feel free to modify the README according to your project's specific needs.
+Contribuições são bem-vindas! Se você encontrou algum problema no código ou deseja adicionar melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
 
-![coffee](https://github.com/layla-ventilari/coffee-delivery/assets/99200113/dde357ed-8616-4e46-aa6e-1d7c03cb2a26)
