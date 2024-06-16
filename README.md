@@ -1,8 +1,8 @@
-# Desafio do Curso Ignite - Coffee Delivery ☕
+# Coffee Delivery ☕
 
 ## 📖 Descrição
 
-Este repositório contém a solução do desafio do curso Ignite, na trilha de ReactJS. O desafio consistia em desenvolver uma aplicação para gerenciar um carrinho de compras de uma cafeteria fictícia, com as seguintes funcionalidades:
+Este repositório contém a solução do desafio do curso Ignite, na trilha de ReactJS. O desafio consistia em desenvolver uma aplicação para gerenciar um carrinho de compras de uma cafeteria, com as seguintes funcionalidades:
 
 - Listagem de produtos (cafés) disponíveis para compra
 - Adicionar uma quantidade específica de itens no carrinho
